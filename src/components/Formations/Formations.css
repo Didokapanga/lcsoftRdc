@@ -1,0 +1,222 @@
+.formations {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* background: linear-gradient(-75deg, #1B9CFC, #182C61); */
+    background-color: var(--secondary);
+}
+
+.formations-content {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 50px 0 30px 0;
+    gap: 30px;
+    color: #fff;
+}
+
+.formations-title {
+    height: 100%;
+}
+
+.formations-title a {
+    padding: 10px 40px;
+    border: 1px solid #fff;
+    border-radius: 7px;
+    transition: 0.5s ease-out;
+    color: #fff;
+}
+
+.formations-title a:hover {
+    background-color: var(--blue-spiro);
+    color: #fff;
+    border: none;
+}
+
+.formations-title span {
+    color: #fff;
+}
+
+.formations-title .secondary-text {
+    margin-right: 50%;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    color: #fff;
+}
+
+.formations-item {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    padding: 20px 0;
+    overflow: scroll;
+}
+
+.formations-item::-webkit-scrollbar {
+    display: none;
+}
+
+.formations-item ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    width: 180rem;
+    height: 100%;
+    cursor: grab;
+    margin: 10px 0;
+    padding: 0;
+}
+
+.formations-item li {
+    width: 20rem;
+    height: 22rem;
+    border-radius: 7px;
+    background-color: #718093;
+    box-shadow: 3px 4px 5px rgba(1, 4, 1, 0.1);
+    overflow: hidden;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.formations-item li:hover {
+    transform: translateY(-10px);
+    transition: 1s ease-in;
+    background-color: #7f8fa6;
+}
+
+.formations-item li:hover .blob-item {
+    left: 92px;
+    transition: 30s ease-in;
+}
+
+.formations-item li:hover .icon-item {
+    right: 92px;
+    transition: 30s ease-out;
+}
+
+.formations-item .formations-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.formations-item h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.formations-item .blob-item {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.icon-item {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.formations-item .formation-desc {
+    font-size: 14px;
+    color: #f4f4f4;
+}
+
+.formations-item a {
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 1s ease-out;
+}
+
+.formations-item a:hover {
+    color: var(--blue-spiro);
+    gap: 20px;
+}
+
+.formations-nav {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 60px;
+}
+
+.nav-btn {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+.nav-btn:hover {
+    background-color: var(--color-2);
+    /* Couleur de survol */
+}
+
+
+/* Styles de base pour les éléments avant l'animation */
+.formations-content .forme-animated {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Styles lorsque les éléments deviennent visibles */
+.formations-content .forme-animated.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInFromBottom 1s ease-out forwards;
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width:600px) {
+
+    .formations-title a {
+        width: 70px;
+        font-size: 14px;
+        padding: 6px 30px;
+    }
+}
+
+@media (max-width:1200px) {
+    .formations-title .secondary-text {
+        margin-right: 40%;
+    }
+}
+
+@media (max-width:900px) {
+    .formations-title .secondary-text {
+        margin-right: 25%;
+        font-size: 20px;
+    }
+
+    .formations-title .formations-info {
+        font-size: 14px;
+    }
+}

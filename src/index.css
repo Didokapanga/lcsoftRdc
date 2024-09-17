@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  font-family: Inter, "Montserrat", "Arial", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  --primary: #182C61;
+  --secondary: #1B9CFC;
+  --blue-spiro: #17c0eb;
+  --color-1: #7f8fa6;
+  --color-2: #718093;
+  --orange: #ff9f1a;
+  --text: #333;
+  --yelow: #f9ca24;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--blue-spiro);
+}
+
+body {
+  margin: 0;
+}
+
+/* Style pour la barre de défilement */
+body::-webkit-scrollbar {
+  width: 8px;
+  /* Largeur de la barre de défilement */
+  height: 8px;
+  /* Hauteur de la barre de défilement horizontale */
+}
+
+/* Style pour le "pouce" de la barre de défilement (partie déplaçable) */
+body::-webkit-scrollbar-thumb {
+  background-color: var(--blue-spiro);
+  /* Couleur de la partie déplaçable */
+  /* Coins arrondis */
+  border: 3px solid var(--blue-spiro);
+  /* Bordure autour du pouce */
+}
+
+/* Style pour la piste de la barre de défilement (arrière-plan) */
+body::-webkit-scrollbar-track {
+  background: #fff;
+  /* Couleur de l'arrière-plan de la barre de défilement */
+  /* Coins arrondis */
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+.primary-text {
+  font-size: 16px;
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+
+.secondary-text {
+  margin: 5px 0;
+  text-align: start;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.btn-click {
+  position: fixed;
+  background-color: var(--yelow);
+  z-index: 99999999999;
+  top: 85%;
+  bottom: 0;
+  left: 90%;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  outline: none;
+}
+
+.btn-click:hover {
+  background-color: var(--secondary);
+  border: none;
+}
+
+.btn-click span {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  opacity: 0;
+  /* Commence invisible */
+  animation: slideInFromBottom 1s ease-out forwards;
+}
+
+.animate-top {
+  animation: slideInFromTop 1s ease-out forwards;
+}
+
+.text-animated {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(20) alternate;
+}
+
+.forme-animated {
+  overflow: hidden;
+  animation: slideInFromLeft 2s steps(20) alternate;
+}
+
+.blob-animated {
+  overflow: hidden;
+  animation: slideInFromTop 2s steps(20) alternate;
+}
+
+.texts-animated {
+  color: #fff;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 22%;
+  }
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+/*********************** Loading page animation ************************/
+
+
+/* Ajoutez le préfixe 'teams-' pour éviter les conflits */
+.first-animated,
+.animated-top,
+.secondary-animated,
+.primary-animated {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Appliquez les animations spécifiques pour 'Teams' */
+.item-is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animations spécifiques pour 'Teams' */
+@keyframes teams-slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes teams-slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Utilisez ces nouvelles animations */
+.animated-top {
+  animation: teams-slideInFromTop 1s ease-out forwards;
+}
+
+.frist-animated {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: teams-typing 2s steps(20) alternate;
+}
+
+.secondary-animated {
+  overflow: hidden;
+  animation: teams-slideInFromTop 2s steps(20) alternate;
+}
+
+.primary-animated {
+  overflow: hidden;
+  animation: teams-slideInFromLeft 2s steps(20) alternate;
+}
+
+@keyframes teams-typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 22%;
+  }
+}
+
+
+/* @keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    /* Taille normale */
+/* }
+
+  50% {
+    transform: scale(1.2);
+    /* Agrandissement à 120% */
+/*}*/
+/*} */
+
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    border-color: rgba(24, 44, 97, 1);
+    /* Bordure opaque */
+  }
+
+  50% {
+    transform: scale(0.8);
+    /* Rétrécissement */
+    border-color: rgba(24, 44, 97, 0);
+    /* Bordure transparente */
+  }
+}

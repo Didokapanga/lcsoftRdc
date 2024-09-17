@@ -1,0 +1,233 @@
+.teams {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.teams-content {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 50px 0 30px 0;
+    gap: 30px;
+}
+
+.teams-left {
+    flex: 1;
+    text-align: start;
+}
+
+.teams-left a {
+    padding: 10px 40px;
+    border: 1px solid #696969;
+    border-radius: 7px;
+    transition: 0.5s ease-out;
+}
+
+.teams-left a:hover {
+    background-color: var(--blue-spiro);
+    color: #fff;
+    border: none;
+}
+
+.teams-left p {
+    padding: 30px 30px 20px 0;
+}
+
+.teams-left .teams-secondary-text {
+    margin: 0;
+    line-height: 1.1;
+}
+
+.teams-right {
+    flex: 1;
+}
+
+.teams-right ul {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.teams-right li {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 0 40px;
+    margin-bottom: 30px;
+}
+
+.teams-right .teams-team-title {
+    flex: 1;
+    border-right: 1px solid #696969;
+}
+
+.teams-team-title .teams-team-number {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.teams-team-title .teams-icon-add {
+    font-size: 14px;
+    color: var(--orange);
+    position: relative;
+    bottom: 20px;
+}
+
+.teams-team-title .teams-name-item {
+    font-size: 14px;
+}
+
+.teams-right .teams-team-item {
+    flex: 4;
+}
+
+
+
+
+/* Ajoutez le préfixe 'teams-' pour éviter les conflits */
+.teams-text-animated,
+.teams-animate-top,
+.teams-blob-animated,
+.teams-forme-animated {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Appliquez les animations spécifiques pour 'Teams' */
+.teams-is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animations spécifiques pour 'Teams' */
+@keyframes teams-slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes teams-slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Utilisez ces nouvelles animations */
+.teams-animate-top {
+    animation: teams-slideInFromTop 1s ease-out forwards;
+}
+
+.teams-text-animated {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: teams-typing 2s steps(20) alternate;
+}
+
+.teams-blob-animated {
+    overflow: hidden;
+    animation: teams-slideInFromTop 2s steps(20) alternate;
+}
+
+.teams-forme-animated {
+    overflow: hidden;
+    animation: teams-slideInFromLeft 2s steps(20) alternate;
+}
+
+@keyframes teams-typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 22%;
+    }
+}
+
+@media (max-width:600px) {
+    .teams-content {
+        flex-direction: column;
+    }
+
+    .teams-right ul {
+        padding: 0;
+        gap: 20px;
+    }
+
+    .teams-right li {
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    .teams-team-title .teams-team-number {
+        font-size: 30px;
+    }
+
+    .teams-team-title .teams-icon-add {
+        font-size: 14px;
+    }
+
+    .teams-team-title .teams-name-item {
+        font-size: 14px;
+    }
+
+    .teams-team-item span {
+        font-size: 14px;
+    }
+
+    .teams-left h2 {
+        font-size: 20px;
+    }
+
+    .teams-left .teams-secondary-text {
+        font-size: 14px;
+    }
+
+    .teams-left p {
+        font-size: 14px;
+    }
+
+    .teams-left a {
+        width: 70px;
+        font-size: 14px;
+        padding: 6px 30px;
+    }
+}
+
+@media (max-width:1000px) {
+    .teams-content {
+        flex-direction: column;
+    }
+
+    .teams-right li {
+        margin-left: 0;
+    }
+
+    .teams-right ul {
+        padding: 0;
+    }
+}

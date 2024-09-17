@@ -1,0 +1,288 @@
+.projects {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.projects-content {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 50px 0 30px 0;
+    gap: 30px;
+}
+
+.projects-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.projects-title span {
+    text-align: start;
+    margin-left: 50%;
+}
+
+.projects-title h2 {
+    margin-left: 50%;
+    text-align: start;
+    color: var(--primary);
+}
+
+.projects-title a {
+    padding: 8px 40px;
+    border: 1px solid #696969;
+    border-radius: 7px;
+    transition: 0.5s ease-out;
+    width: 80px;
+    margin-left: 50%;
+}
+
+.projects-title a:hover {
+    background-color: var(--blue-spiro);
+    color: #fff;
+    border: none;
+}
+
+.projects-item {
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    margin-bottom: 80px;
+}
+
+.projects-item ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    width: 160rem;
+    height: 100%;
+    cursor: grab;
+    margin: 10px 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.projects-item::-webkit-scrollbar {
+    display: none;
+}
+
+/* Style pour le "pouce" de la barre de défilement (partie déplaçable) */
+.projects-item::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+/* Style pour la piste de la barre de défilement (arrière-plan) */
+.projects-item::-webkit-scrollbar-track {
+    display: none;
+}
+
+.projects-item li {
+    width: 35rem;
+    height: 20rem;
+    border-radius: 7px;
+    background-color: #fff;
+    box-shadow: 3px 4px 5px rgba(1, 4, 1, 0.1);
+    overflow: hidden;
+}
+
+.projects-info {
+    width: 50%;
+    height: 95%;
+    background-color: rgba(82, 75, 75, 0.9);
+    color: #fff;
+    position: relative;
+    left: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 1;
+    top: -19.5rem;
+}
+
+.projects-info span {
+    padding: 0 10px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.projects-item li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.projects-item li:hover img {
+    transform: scale(1.1);
+}
+
+.name-info {
+    width: 90%;
+    border-radius: 15px;
+    margin: 5px 5px;
+    font-weight: 600;
+    cursor: pointer;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.name-info span {
+    margin: 0;
+    padding: 0;
+}
+
+.list-style {
+    width: 10px;
+    height: 10px;
+    background-color: var(--blue-spiro);
+    border-radius: 15px;
+}
+
+.cat-style {
+    width: 10px;
+    height: 10px;
+    background-color: var(--orange);
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+.projects-item li .name-desc {
+    margin: 5px 5px;
+    font-size: 14px;
+}
+
+.cat-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name-cat {
+    width: 90%;
+    border-radius: 15px;
+    margin: 5px 5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.name-cat span {
+    margin: 0;
+    padding: 0;
+}
+
+.go {
+    background-color: var(--orange);
+    width: auto;
+    border-radius: 15px;
+    margin: 5px 5px;
+    font-weight: 600;
+    transform: translateY(50px);
+    transition: 0.5s ease-out;
+    display: flex;
+    align-items: center;
+}
+
+.projects-item li:hover .go {
+    transform: translateY(0);
+    cursor: pointer;
+}
+
+/*******************/
+
+/* Styles de base pour les éléments avant l'animation */
+.projects-title .forme-animated {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Styles lorsque les éléments deviennent visibles */
+.projects-title .forme-animated.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInFromBottom 1s ease-out forwards;
+}
+
+/* Styles lorsque les éléments deviennent visibles */
+.projects-item .forme-animated.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInFromBottom 1s ease-out forwards;
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+/*******/
+
+
+@media (max-width:1000px) {
+    .projects-title h2 {
+        margin-left: 40%;
+    }
+
+    .projects-title span {
+        margin-left: 40%;
+    }
+
+    .projects-title a {
+        margin-left: 40%;
+    }
+}
+
+@media (max-width:900px) {
+    .projects-title h2 {
+        margin-left: 30%;
+    }
+
+    .projects-title a {
+        margin-left: 30%;
+    }
+
+    .projects-title span {
+        margin-left: 30%;
+    }
+}
+
+@media (max-width:600px) {
+    .projects-title h2 {
+        margin-left: 15%;
+        font-size: 20px;
+    }
+
+    .projects-title a {
+        margin-left: 15%;
+        width: 70px;
+        font-size: 14px;
+        padding: 6px 30px;
+    }
+
+    .projects-title span {
+        margin-left: 15%;
+        font-size: 14px;
+    }
+}

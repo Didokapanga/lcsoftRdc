@@ -1,0 +1,120 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+.navbar--visible {
+    transform: translateY(0);
+    /* Navbar à sa position normale */
+}
+
+.navbar--hidden {
+    transform: translateY(-100%);
+    /* Cache la navbar en la déplaçant en dehors de la vue */
+}
+
+.navbar-content {
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.navbar-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.navbar-menu {
+    flex: 12;
+    display: flex;
+}
+
+.navbar-menu ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+.navbar-menu a {
+    color: #fff;
+}
+
+.navbar--scrolled {
+    background-color: rgba(24, 44, 97, 0.5);
+    /* Bleu semi-transparent */
+}
+
+.navbar-menu .berger-menu {
+    z-index: 9999;
+    color: #fff;
+    font-size: 35px;
+    display: none;
+}
+
+@media (max-width:600px) {
+    .navbar {
+        height: 2rem;
+    }
+
+    .navbar .navbar-logo img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width:1000px) {
+    .navbar-menu ul {
+        display: none;
+    }
+
+    .navbar-menu .berger-menu {
+        display: block;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .navbar-menu {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width:1200px) {
+    .navbar {
+        height: auto;
+    }
+
+    .navbar-menu ul {
+        gap: 20px;
+        font-size: 14px;
+    }
+}
